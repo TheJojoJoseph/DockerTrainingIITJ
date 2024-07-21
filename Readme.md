@@ -1,6 +1,10 @@
 #### Objective : DockerFile
 
-## reate a docker network : 
+Roll Number : g23ai2100 
+Batch: 2024
+Name: Jojo Joseph
+
+## Create a docker network : 
 
 docker network create student_registery_network
 
@@ -33,3 +37,5 @@ docker run -d --name student_registery_frontend -p 8000:8000 student_register_fr
 
 ## Done 
 Go to browser localhost:8000
+
+Add a record to the database using frontend. 
