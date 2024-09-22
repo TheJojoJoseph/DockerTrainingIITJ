@@ -1,28 +1,50 @@
 from locust import HttpUser, TaskSet, task, between
 
+
 class APITasks(TaskSet):
-    
-    @task(1)
-    def get_api(self):
-        # Define the endpoint you want to hit
-        response = self.client.get("/your/api/endpoint")
-        if response.status_code == 200:
-            print("Success")
-        else:
-            print(f"Failed with status code {response.status_code}")
 
     @task(1)
-    def post_api(self):
-        # Example of POST request
-        payload = {"key": "value"}
-        headers = {"Content-Type": "application/json"}
-        response = self.client.post("/your/api/endpoint", json=payload, headers=headers)
+    def list_students(self):
+        url = "/api/listStudents/"
+        headers = {
+            'sec-ch-ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Brave";v="128"',
+            'Accept': 'application/json, text/plain, */*',
+            'sec-ch-ua-platform': '"macOS"',
+            'Referer': 'http://localhost:3000/',
+            'sec-ch-ua-mobile': '?0',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+            'Content-Type': 'application/json'
+        }
+        data = '{"offset":0,"limit":5}'
+        response = self.client.post(url, headers=headers, data=data)
         if response.status_code == 200:
-            print("POST Success")
+            print("List Students Success")
         else:
-            print(f"POST Failed with status code {response.status_code}")
+            print(f"List Students Failed with status code {
+                  response.status_code}")
+
+    @task(1)
+    def add_student(self):
+        url = "/api/addStudent/"
+        headers = {
+            'sec-ch-ua': '"Chromium";v="128", "Not;A=Brand";v="24", "Brave";v="128"',
+            'Accept': 'application/json, text/plain, */*',
+            'sec-ch-ua-platform': '"macOS"',
+            'Referer': 'http://localhost:3000/',
+            'sec-ch-ua-mobile': '?0',
+            'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36',
+            'Content-Type': 'application/json'
+        }
+        data = '{"name":"Jojo","age":"23","class":"12"}'
+        response = self.client.post(url, headers=headers, data=data)
+        if response.status_code == 200:
+            print("Add Student Success")
+        else:
+            print(f"Add Student Failed with status code {
+                  response.status_code}")
+
 
 class APIUser(HttpUser):
     tasks = [APITasks]
     wait_time = between(1, 5)  # wait between 1 and 5 seconds between tasks
-    host = "https://your.api.base.url"  # Base URL of your API
+    host = "http://localhost:5001"
