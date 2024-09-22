@@ -1,8 +1,9 @@
-#### Objective : DockerFile
+#### Objective :  VCC Project
 
-Roll Number : g23ai2100
+Jojo Joseph (G23AI2100)
+Anirban Sinha (G23AI2084)
+Aparna Mundke (G23AI2003)
 Batch: 2024
-Name: Jojo Joseph
 
 ## Use the  docker-compose
 Run docker-compose up --build to build the images and bring up the services.
@@ -13,12 +14,14 @@ OR
 
 ## Run the API LOAD test
 
+
+pip install virtualenv
 virtualenv -p python3 venv
 cd venv/bin/  
 source activate
 cd ../..
 pip install locust
-locust -f api-load-testing/locustfile.py
+locust -f api locustfile.py
 
 ## Create a docker network :
 
