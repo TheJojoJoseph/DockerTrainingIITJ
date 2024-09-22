@@ -4,6 +4,13 @@ Roll Number : g23ai2100
 Batch: 2024
 Name: Jojo Joseph
 
+
+Run docker-compose up --build to build the images and bring up the services.
+
+docker-compose up --build
+
+OR 
+
 ## Create a docker network :
 
 docker network create student_registery_network
