@@ -11,6 +11,15 @@ docker-compose up --build
 
 OR 
 
+## Run the API LOAD test
+
+virtualenv -p python3 venv
+cd venv/bin/  
+source activate
+cd ../..
+pip install locust
+locust -f api-load-testing/locustfile.py
+
 ## Create a docker network :
 
 docker network create student_registery_network
