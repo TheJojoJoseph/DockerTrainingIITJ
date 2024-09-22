@@ -4,7 +4,7 @@ Roll Number : g23ai2100
 Batch: 2024
 Name: Jojo Joseph
 
-
+## Use the  docker-compose
 Run docker-compose up --build to build the images and bring up the services.
 
 docker-compose up --build
