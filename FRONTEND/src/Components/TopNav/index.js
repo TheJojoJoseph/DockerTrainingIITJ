@@ -12,6 +12,7 @@ import { isValid } from "../../utils/formValidator";
 import { FORM_FIELDS } from "./TopNav.config";
 import { addStudent } from "../../api/students";
 import { makeUrl, parseWebUrl } from "../../utils/queryString";
+import logo from "../../assets/logo.png";
 
 class TopNav extends React.Component {
   constructor(props) {
@@ -79,6 +80,8 @@ class TopNav extends React.Component {
       <>
         <div className={style["nav-bar"]}>
           <div className={style.navs}>
+            <img src={logo} alt="Logo" className={style.logo} />{" "}
+            {/* Add logo here */}
             <Link onClick={(e) => e.preventDefault}>VCC Project - IITJ</Link>
           </div>
           <div className={style["user-controls"]}>
