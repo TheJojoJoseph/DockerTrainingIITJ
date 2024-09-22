@@ -1,34 +1,34 @@
 /* eslint-disable */
 
-import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import { ROUTES } from '../../Routes.constants';
-import PropType from 'prop-types';
-import style from './style.module.scss';
-import { Modal, Button } from 'antd';
-import InputField from '../InputField';
-import { notify } from '../../utils/notifications';
-import { isValid } from '../../utils/formValidator';
-import { FORM_FIELDS } from './TopNav.config';
-import { addStudent } from '../../api/students';
-import { makeUrl, parseWebUrl } from '../../utils/queryString';
+import React, { Component } from "react";
+import { Link, withRouter } from "react-router-dom";
+import { ROUTES } from "../../Routes.constants";
+import PropType from "prop-types";
+import style from "./style.module.scss";
+import { Modal, Button } from "antd";
+import InputField from "../InputField";
+import { notify } from "../../utils/notifications";
+import { isValid } from "../../utils/formValidator";
+import { FORM_FIELDS } from "./TopNav.config";
+import { addStudent } from "../../api/students";
+import { makeUrl, parseWebUrl } from "../../utils/queryString";
 
 class TopNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalVisible: false,
-      name: { value: '', error: '' },
-      age: { value: '', error: '' },
-      stu_class: { value: '', error: '' },
+      name: { value: "", error: "" },
+      age: { value: "", error: "" },
+      stu_class: { value: "", error: "" },
     };
   }
 
   clearForm = () => {
     this.setState({
-      name: { value: '', error: '' },
-      age: { value: '', error: '' },
-      stu_class: { value: '', error: '' },
+      name: { value: "", error: "" },
+      age: { value: "", error: "" },
+      stu_class: { value: "", error: "" },
     });
   };
 
@@ -50,7 +50,7 @@ class TopNav extends React.Component {
       class: stu_class.value,
     })
       .then((res) => {
-        notify.success('Student added successfully');
+        notify.success("Student added successfully");
         this.props.history.replace({
           search: makeUrl({ addSuccess: true }),
         });
@@ -58,7 +58,7 @@ class TopNav extends React.Component {
         this.toggleStudentModal();
       })
       .catch((err) => {
-        notify.error('Error in adding student');
+        notify.error("Error in adding student");
       });
   };
 
@@ -77,11 +77,11 @@ class TopNav extends React.Component {
     const { isModalVisible, name, age, stu_class } = this.state;
     return (
       <>
-        <div className={style['nav-bar']}>
+        <div className={style["nav-bar"]}>
           <div className={style.navs}>
-            <Link onClick={(e) => e.preventDefault}>Logo</Link>
+            <Link onClick={(e) => e.preventDefault}>VCC Project - IITJ</Link>
           </div>
-          <div className={style['user-controls']}>
+          <div className={style["user-controls"]}>
             <Link
               onClick={(e) => {
                 e.preventDefault();
@@ -93,7 +93,7 @@ class TopNav extends React.Component {
           </div>
         </div>
         <Modal
-          title='Add Student Form'
+          title="Add Student Form"
           visible={isModalVisible}
           onOk={this.addStudent}
           onCancel={this.toggleStudentModal}
@@ -101,9 +101,9 @@ class TopNav extends React.Component {
           <ul className={style.formsBlock__list}>
             <li>
               <InputField
-                htmlForName='name'
-                placeholderLabel='Name'
-                type='text'
+                htmlForName="name"
+                placeholderLabel="Name"
+                type="text"
                 onChange={this.inputChange}
                 value={name.value}
                 error={name.error}
@@ -111,9 +111,9 @@ class TopNav extends React.Component {
             </li>
             <li>
               <InputField
-                htmlForName='age'
-                placeholderLabel='Age'
-                type='number'
+                htmlForName="age"
+                placeholderLabel="Age"
+                type="number"
                 onChange={this.inputChange}
                 value={age.value}
                 error={age.error}
@@ -121,9 +121,9 @@ class TopNav extends React.Component {
             </li>
             <li>
               <InputField
-                htmlForName='stu_class'
-                placeholderLabel='Class'
-                type='number'
+                htmlForName="stu_class"
+                placeholderLabel="Class"
+                type="number"
                 onChange={this.inputChange}
                 value={stu_class.value}
                 error={stu_class.error}
