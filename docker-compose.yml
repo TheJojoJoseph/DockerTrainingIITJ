@@ -2,6 +2,9 @@ version: '3.8'
 
 services:
   postgres_db:
+    build:
+      context: ./DATABASE
+      dockerfile: Dockerfile
     image: postgres:1.0.0
     container_name: postgres_db
     environment:
@@ -12,6 +15,9 @@ services:
 
 
   backend:
+    build:
+      context: ./BACKEND
+      dockerfile: Dockerfile
     image: student_register_backend:1.0.0
     container_name: student_registery_backend
     depends_on:
@@ -28,6 +34,8 @@ services:
       - "5001:5001"
 
   frontend:
+    build:
+      context: ./FRONTEND
     image: student_register_frontend:1.0.0
     container_name: student_registery_frontend
     depends_on:
