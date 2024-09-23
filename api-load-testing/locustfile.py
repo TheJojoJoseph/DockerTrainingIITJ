@@ -66,4 +66,4 @@ class APITasks(TaskSet):
 class APIUser(HttpUser):
     tasks = [APITasks]
     # wait_time = between(1, 5)  # wait between 1 and 5 seconds between tasks
-    host = "http://localhost:5001"
+    host = "http://localhost:5001" # Replace this with PROD endpoint when running test on production  in GCP
