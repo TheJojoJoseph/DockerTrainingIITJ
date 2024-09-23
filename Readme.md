@@ -1,9 +1,23 @@
-#### Objective :  VCC Project
+#### Objective :  VCC Project Project 
 
-Jojo Joseph (G23AI2100)
-Anirban Sinha (G23AI2084)
-Aparna Mundke (G23AI2003)
-Batch: 2024
+
+Jojo Joseph (G23AI2100) Batch: 2024
+Anirban Sinha (G23AI2084) Batch: 2024
+Aparna Mundke (G23AI2003) Batch: 2024
+
+
+PART 1    -  Aparana
+Frontend , Backend and Datebase. 
+( We are reusing the same Docker container)
+
+PART 2  - Anirban
+Docker Compose and VM and GCP Services
+Locust API Load testing 
+
+PART 3 -  Jojo 
+Terraform and GCP Services and testing on Cloud. 
+
+
 
 ## Use the  docker-compose
 Run docker-compose up --build to build the images and bring up the services.
